@@ -59,6 +59,29 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+// Comprime una imagen a un tamaño razonable y la devuelve en base64
+function comprimirImagen(file, maxAncho = 700, calidad = 0.6) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const escala = Math.min(1, maxAncho / img.width);
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width * escala;
+        canvas.height = img.height * escala;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL("image/jpeg", calidad));
+      };
+      img.onerror = reject;
+      img.src = e.target.result;
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   cargarPolla();
   const form = document.getElementById("pollaForm");
@@ -70,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const colombia = document.getElementById("pColombia").value;
       const congo = document.getElementById("pCongo").value;
       const goleador = document.getElementById("pGoleador").value;
+      const archivoComprobante = document.getElementById("pComprobante").files[0];
 
       if (!nombre || colombia === "" || congo === "") {
         msg.textContent = "Completa tu nombre y el marcador.";
@@ -81,16 +105,23 @@ document.addEventListener("DOMContentLoaded", () => {
       msg.className = "polla-msg";
 
       try {
+        let comprobante = "";
+        if (archivoComprobante) {
+          msg.textContent = "Procesando comprobante...";
+          comprobante = await comprimirImagen(archivoComprobante);
+        }
+
         const res = await fetch(API_POLLA, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ action: "submit", nombre, colombia, congo, goleador }),
+          body: JSON.stringify({ action: "submit", nombre, colombia, congo, goleador, comprobante }),
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || "Error al enviar");
 
         msg.textContent = "¡Pronóstico registrado! 🎉";
         msg.className = "polla-msg success";
+        form.reset();
         cargarPolla();
       } catch (err) {
         msg.textContent = "Error: " + err.message;
