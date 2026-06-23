@@ -1,6 +1,7 @@
 // netlify/functions/polla.js
 // API de la Polla "Colombia vs RD Congo" - usa Netlify Blobs como base de datos.
 const { getStore } = require("@netlify/blobs");
+const { connectLambda } = require("@netlify/blobs");
 
 const HEADERS = {
   "Content-Type": "application/json",
@@ -72,6 +73,8 @@ function construirRanking(entries, resultado) {
 }
 
 exports.handler = async (event) => {
+  connectLambda(event);
+
   if (event.httpMethod === "OPTIONS") {
     return { statusCode: 204, headers: HEADERS, body: "" };
   }
