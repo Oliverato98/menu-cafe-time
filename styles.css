@@ -145,6 +145,10 @@ main { max-width: 700px; margin: 0 auto; padding: 0 16px 60px; }
   text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px;
 }
 
+#polla.active {
+  opacity: 1 !important;
+  animation: none !important;
+}
 /* POLLA MUNDIAL */
 .polla-card {
   background: var(--section-bg); border: 1.5px solid var(--border);
