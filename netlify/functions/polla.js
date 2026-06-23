@@ -102,7 +102,7 @@ exports.handler = async (event) => {
 
       // --- Acción: enviar pronóstico de un cliente ---
       if (body.action === "submit") {
-        const { nombre, colombia, congo, goleador } = body;
+        const { nombre, colombia, congo, goleador, comprobante } = body;
         if (
           !nombre ||
           colombia === undefined ||
@@ -115,6 +115,9 @@ exports.handler = async (event) => {
 
         const entries = (await store.get("entries", { type: "json" })) || [];
         const nombreNormalizado = String(nombre).trim();
+        const idxExistente = entries.findIndex(
+          (e) => e.nombre.toLowerCase() === nombreNormalizado.toLowerCase()
+        );
 
         const nuevaEntry = {
           id:
@@ -123,16 +126,15 @@ exports.handler = async (event) => {
           colombia: Number(colombia),
           congo: Number(congo),
           goleador: goleador || "",
+          comprobante: comprobante || (idxExistente >= 0 ? entries[idxExistente].comprobante : "") || "",
+          pagado: idxExistente >= 0 ? !!entries[idxExistente].pagado : false,
           fecha: new Date().toISOString(),
         };
 
         // Si la persona ya había pronosticado (mismo nombre exacto), se actualiza su pronóstico
-        const idx = entries.findIndex(
-          (e) => e.nombre.toLowerCase() === nombreNormalizado.toLowerCase()
-        );
-        if (idx >= 0) {
-          nuevaEntry.id = entries[idx].id;
-          entries[idx] = nuevaEntry;
+        if (idxExistente >= 0) {
+          nuevaEntry.id = entries[idxExistente].id;
+          entries[idxExistente] = nuevaEntry;
         } else {
           entries.push(nuevaEntry);
         }
@@ -164,6 +166,20 @@ exports.handler = async (event) => {
         if (body.password !== process.env.ADMIN_PASSWORD) {
           return json(401, { error: "Contraseña incorrecta." });
         }
+        return json(200, { ok: true });
+      }
+
+      // --- Acción: admin marca/desmarca el pago de una persona ---
+      if (body.action === "admin_set_pago") {
+        if (body.password !== process.env.ADMIN_PASSWORD) {
+          return json(401, { error: "Contraseña incorrecta." });
+        }
+        const { id, pagado } = body;
+        const entries = (await store.get("entries", { type: "json" })) || [];
+        const idx = entries.findIndex((e) => e.id === id);
+        if (idx < 0) return json(404, { error: "Pronóstico no encontrado." });
+        entries[idx].pagado = !!pagado;
+        await store.setJSON("entries", entries);
         return json(200, { ok: true });
       }
 
