@@ -102,7 +102,7 @@ exports.handler = async (event) => {
 
       // --- Acción: enviar pronóstico de un cliente ---
       if (body.action === "submit") {
-        const { nombre, colombia, congo, goleador, comprobante } = body;
+        const { nombre, telefono, colombia, congo, goleador, comprobante } = body;
         if (
           !nombre ||
           colombia === undefined ||
@@ -123,6 +123,7 @@ exports.handler = async (event) => {
           id:
             Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
           nombre: nombreNormalizado,
+          telefono: telefono || (idxExistente >= 0 ? entries[idxExistente].telefono : "") || "",
           colombia: Number(colombia),
           congo: Number(congo),
           goleador: goleador || "",
