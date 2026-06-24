@@ -90,13 +90,14 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const msg = document.getElementById("pollaMsg");
       const nombre = document.getElementById("pNombre").value.trim();
+      const telefono = document.getElementById("pTelefono").value.trim();
       const colombia = document.getElementById("pColombia").value;
       const congo = document.getElementById("pCongo").value;
       const goleador = document.getElementById("pGoleador").value;
       const archivoComprobante = document.getElementById("pComprobante").files[0];
 
-      if (!nombre || colombia === "" || congo === "") {
-        msg.textContent = "Completa tu nombre y el marcador.";
+      if (!nombre || !telefono || colombia === "" || congo === "") {
+        msg.textContent = "Completa tu nombre, teléfono y el marcador.";
         msg.className = "polla-msg error";
         return;
       }
@@ -114,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const res = await fetch(API_POLLA, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ action: "submit", nombre, colombia, congo, goleador, comprobante }),
+          body: JSON.stringify({ action: "submit", nombre, telefono, colombia, congo, goleador, comprobante }),
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || "Error al enviar");
