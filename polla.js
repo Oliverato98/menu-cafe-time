@@ -2,34 +2,14 @@
 const API_POLLA = "/api/polla";
 
 async function cargarPolla() {
-  const lista = document.getElementById("pollaLista");
   const ranking = document.getElementById("pollaRanking");
-  if (!lista) return; // si la sección no existe en esta página, salir
+  if (!ranking) return; // si la sección no existe en esta página, salir
 
   try {
     const res = await fetch(API_POLLA);
     const data = await res.json();
 
-    // Lista de pronósticos
-    if (!data.entries || data.entries.length === 0) {
-      lista.innerHTML = '<p class="polla-msg">Aún no hay pronósticos. ¡Sé el primero!</p>';
-    } else {
-      const orden = [...data.entries].sort((a, b) => (b.puntos || 0) - (a.puntos || 0));
-      lista.innerHTML = orden
-        .map(
-          (e) => `
-        <div class="polla-entry">
-          <div>
-            <strong>${escapeHtml(e.nombre)}</strong>
-            <span class="polla-pick">${e.colombia} - ${e.congo}${e.goleador ? " · ⚽ " + escapeHtml(e.goleador) : ""}</span>
-          </div>
-          ${data.resultado ? `<span class="polla-points">${e.puntos ?? 0} pts</span>` : ""}
-        </div>`
-        )
-        .join("");
-    }
-
-    // Ranking (solo si ya hay resultado oficial)
+    // Ranking (solo se muestra cuando ya hay resultado oficial; no se exponen los pronósticos individuales)
     if (data.resultado) {
       const podio = (titulo, arr, medalla) =>
         arr.length
@@ -49,7 +29,7 @@ async function cargarPolla() {
       ranking.innerHTML = '<p class="polla-msg">Esperando el resultado oficial del partido...</p>';
     }
   } catch (err) {
-    lista.innerHTML = '<p class="polla-msg">No se pudo cargar la información. Intenta de nuevo.</p>';
+    ranking.innerHTML = '<p class="polla-msg">No se pudo cargar la información. Intenta de nuevo.</p>';
   }
 }
 
