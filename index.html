@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time Café Bar – Menú</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img class="hero-img" src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1200&q=80" alt="Café">
+  <div class="hero-content">
+    <img class="logo" src="logo.webp" alt="Time Café Bar">
+    <div class="header-cats">Café <span>•</span> Bar <span>•</span> Experiencias</div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-bar">
+  <div class="contact-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    <a href="tel:3115843849">3115843849</a>
+  </div>
+  <div class="contact-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <a class="link-mapa" href="https://www.google.com/maps/search/?api=1&query=Cl.+17+Nte.+%2311-20,+Armenia,+Quind%C3%ADo,+Colombia" target="_blank" rel="noopener">
+      Cl. 17 Nte. # 11-20, Armenia, Quindío
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- TABS -->
+<nav class="tabs">
+  <button class="active" onclick="show('calientes',this)">☕ Calientes</button>
+  <button onclick="show('metodos',this)">🫙 Métodos</button>
+  <button onclick="show('frias',this)">🧋 Frías</button>
+  <button onclick="show('acompanantes',this)">🍰 Acompañantes</button>
+  <button onclick="show('alcoholicas',this)">🍺 Alcohólicas</button>
+  <button onclick="show('cocteles',this)">🍸 Cócteles</button>
+  <button onclick="show('promociones',this)">🎉 Promociones</button>
+  <button onclick="show('polla',this)">⚽ Polla Mundial</button>
+</nav>
+
+<main>
+
+<!-- CALIENTES -->
+<section class="section active" id="calientes">
+  <img class="section-banner" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=80" alt="Bebidas Calientes">
+  <h2 class="section-title">Bebidas Calientes</h2>
+  <div class="img-row">
+    <img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=300&q=75" alt="Espresso">
+    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=300&q=75" alt="Cappuccino">
+   
+  </div>
+  <p class="sub-title">Bebidas a base de café</p>
+  <div class="item"><span class="item-name">Café Campesino</span><span class="item-price">$5.500</span></div>
+  <div class="item"><span class="item-name">Café Americano</span><span class="item-price">$5.500</span></div>
+  <div class="item"><span class="item-name">Espresso</span><span class="item-price">$5.000</span></div>
+  <div class="item"><span class="item-name">Espresso doble</span><span class="item-price">$5.500</span></div>
+  <div class="item"><span class="item-name">Cappuccino sin licor</span><span class="item-price">$7.500</span></div>
+  <div class="item"><span class="item-name">Cappuccino con licor</span><span class="item-price">$12.000</span></div>
+  <div class="item"><span class="item-name">Cafe Bombón</span><span class="item-price">$9.000</span></div>
+  <div class="item"><span class="item-name">Latte</span><span class="item-price">$6.000</span></div>
+  <div class="item"><span class="item-name">Moccaccino</span><span class="item-price">$8.000</span></div>
+  <div class="item"><span class="item-name">Macchiato</span><span class="item-price">$6.000</span></div>
+  <div class="item"><span class="item-name">Café Escocés</span><span class="item-price">$15.000</span></div>
+  <p class="sub-title">Bebidas de temporada</p>
+  <div class="img-row">
+    <img src="imagenes\chocolate.jpg" alt="Chocolate">
+    <img src="imagenes\aguapanela.jpg" alt="Agua panela">
+  </div>
+  <div class="item"><span class="item-name">Agua panela</span><span class="item-price">$5.500</span></div>
+  <div class="item"><span class="item-name">Agua panela con queso</span><span class="item-price">$8.000</span></div>
+  <div class="item"><span class="item-name">Chocolate en agua</span><span class="item-price">$7.000</span></div>
+  <div class="item"><span class="item-name">Chocolate en leche</span><span class="item-price">$8.000</span></div>
+  <div class="item"><span class="item-name">Chocolate con queso</span><span class="item-price">$12.000</span></div>
+  <div class="item"><span class="item-name">Chocolate con masmelo</span><span class="item-price">$8.800</span></div>
+  <div class="item"><span class="item-name">Milo</span><span class="item-price">$6.500</span></div>
+ <div class="img-row">
+    <img src="imagenes\infusion.jpg" alt="infusion">
+    <img src="imagenes\aromatica.jpg" alt="aromatica">
+
+ </div>
+
+
+  <p class="sub-title">Infusiones & aromáticas</p>
+  <div class="item"><span class="item-name">Te chai</span><span class="item-price">$9.000</span></div>
+  <div class="item"><span class="item-name">Infusiones de frutas</span><span class="item-price">$7.800</span></div>
+  <div class="item"><span class="item-name">Aromática de panelita</span><span class="item-price">$3.000</span></div>
+  <div class="item"><span class="item-name">Aromática de sobre</span><span class="item-price">$3.000</span></div>
+</section>
+
+<!-- MÉTODOS -->
+<section class="section" id="metodos">
+  <img class="section-banner" src="imagenes\preparacion.jpg" alt="Métodos">
+  <h2 class="section-title">Métodos de Preparación</h2>
+  <div class="img-row">
+    <img src="imagenes\prensa_francesa.jpg" alt="Prensa Francesa">
+    <img src="imagenes\prensa_francesa_2.jpg" alt="Prensa Francesa 2">
+  </div>
+  <div class="method-card">
+    <h3>☕ Prensa Francesa</h3>
+    <div class="item"><span class="item-name">Café Gourmet</span><span class="item-price">$14.000</span></div>
+    <div class="item"><span class="item-name">Café Exótico</span><span class="item-price">$18.000</span></div>
+  </div>
+  <div class="img-row">
+        <img src="imagenes\chemex.jpg" alt="Chemex">
+           <img src="imagenes\chemex_2.jpg" alt="Chemex 2">
+  </div>
+
+  <div class="method-card">
+    <h3>☕ Chemex</h3>
+    <div class="item"><span class="item-name">Café Gourmet</span><span class="item-price">$14.000</span></div>
+    <div class="item"><span class="item-name">Café Exótico</span><span class="item-price">$18.000</span></div>
+  </div>
+  <div class="img-row">
+   <img src="imagenes\v60.jpg" alt="V60">
+           <img src="imagenes\v60_2.jpg" alt="V60 2">
+  </div>
+   <div class="method-card">
+    <h3>☕ V60</h3>
+    <div class="item"><span class="item-name">Café Gourmet</span><span class="item-price">$14.000</span></div>
+    <div class="item"><span class="item-name">Café Exótico</span><span class="item-price">$18.000</span></div>
+  </div>
+</section>
+
+<!-- FRÍAS -->
+<section class="section" id="frias">
+  <img class="section-banner" src="imagenes\bebida_fria.jpg" alt="Bebidas Frías">
+  <h2 class="section-title">Bebidas Frías</h2>
+  <div class="img-row">
+    <img src="imagenes\bebidas_frias.jpg" alt="Bebida fría">
+        <img src="imagenes\afogato.jpg" alt="afogato">
+  </div>
+  <p class="sub-title">Cafés fríos</p>
+  <div class="item"><span class="item-name">Latte frío</span><span class="item-price">$9.000</span></div>
+  <div class="item"><span class="item-name">Café frío</span><span class="item-price">$6.300</span></div>
+  <div class="item"><span class="item-name">Latte frío con chantilly</span><span class="item-price">$10.000</span></div>
+  <div class="item"><span class="item-name">Frappuccino</span><span class="item-price">$9.000</span></div>
+  <div class="item"><span class="item-name">Milo frío</span><span class="item-price">$9.000</span></div>
+  <div class="item"><span class="item-name">Te chai frío</span><span class="item-price">$10.000</span></div>
+  <div class="item"><span class="item-name">Affogato</span><span class="item-price">$13.000</span></div>
+  <div class="item"><span class="item-name">Cold Brew</span><span class="item-price">$8.000</span></div>
+  <div class="item"><span class="item-name">Carajillo</span><span class="item-price">$12.000</span></div>
+  <div class="item"><span class="item-name">Granizado de café</span><span class="item-price">$13.000</span></div>
+  <div class="img-row">
+    <img src="imagenes\limonada.jpg" alt="Limonada">
+      <img src="imagenes\batidos.jpg" alt="Batidos">
+  </div>
+  <p class="sub-title">Batidos & Limonadas</p>
+  <div class="item"><span class="item-name">Batido en agua (mango, maracuyá y hierbabuena)</span><span class="item-price">$9.000</span></div>
+  <div class="item"><span class="item-name">Batido en leche (banano, café y canela)</span><span class="item-price">$10.000</span></div>
+  <div class="item"><span class="item-name">Limonada natural</span><span class="item-price">$8.000</span></div>
+  <div class="item"><span class="item-name">Limonada de coco</span><span class="item-price">$11.000</span></div>
+  <div class="item"><span class="item-name">Limonada hierbabuena</span><span class="item-price">$11.000</span></div>
+  <div class="item"><span class="item-name">Limonada cerezada</span><span class="item-price">$11.000</span></div>
+  <div class="item"><span class="item-name">Limonada de maracuya</span><span class="item-price">$11.000</span></div>
+  <div class="item"><span class="item-name">Limonada de lulo</span><span class="item-price">$11.000</span></div>
+  <div class="item"><span class="item-name">Limonada de guanabana</span><span class="item-price">$11.000</span></div>
+  <div class="item"><span class="item-name">Limonada de fresa</span><span class="item-price">$11.000</span></div>
+    <div class="item"><span class="item-name">Limonada de mora</span><span class="item-price">$11.000</span></div>
+
+ <div class="img-row">
+    <img src="imagenes\soda.jpg" alt="soda">
+      <img src="imagenes\gaseosa.jpg" alt="gaseosa">
+  </div>
+  <p class="sub-title">Sodas & Gaseosas</p>
+  <div class="item"><span class="item-name">Jugos naturales en agua (mango, maracuya, lulo, guanabana, fresa, mora)</span><span class="item-price">8.000</span></div>
+  <div class="item"><span class="item-name">Jugos naturales en leche (mango, maracuya, lulo, guanabana, fresa, mora)</span><span class="item-price">$9.000</span></div>
+  <div class="item"><span class="item-name">Coca-Cola</span><span class="item-price">$5.000</span></div>
+  <div class="item"><span class="item-name">Soda hatsu</span><span class="item-price">$5.000</span></div>
+  <div class="item"><span class="item-name">Soda</span><span class="item-price">$4.500</span></div>
+  <div class="item"><span class="item-name">Soda michelada</span><span class="item-price">$6.500</span></div>
+  <div class="item"><span class="item-name">Soda frutal (frutos amarillos/rojos)</span><span class="item-price">$13.000</span></div>
+  <div class="item"><span class="item-name">Soda lyche</span><span class="item-price">$14.000</span></div>
+  <div class="item"><span class="item-name">Malteadas (maracuya, lulo, fresa, cereza, frutos rojos, vainilla, chocolate, café, oreo, milo)</span><span class="item-price">$15.000</span></div>
+  <div class="item"><span class="item-name">Agua tónica Bruss</span><span class="item-price">$9.000</span></div>
+  <div class="item"><span class="item-name">Agua sin gas</span><span class="item-price">$3.500</span></div>
+  <div class="item"><span class="item-name">Agua con gas</span><span class="item-price">$3.500</span></div>
+</section>
+
+<!-- ACOMPAÑANTES -->
+<section class="section" id="acompanantes">
+  <img class="section-banner" src="imagenes\tortas.jpg" alt="tortas">
+  <h2 class="section-title">Acompañantes</h2>
+  <div class="img-row">
+    <img src="imagenes\torta_1.jpg" alt="Torta 1">
+    <img src="imagenes\almojabana.jpg" alt="almojabana">
+  </div>
+  <div class="item"><span class="item-name">Torta del día</span><span class="item-price">$8.000</span></div>
+  <div class="item"><span class="item-name">Almojábana</span><span class="item-price">$3.500</span></div>
+  <div class="item"><span class="item-name">Pandebono</span><span class="item-price">$3.500</span></div>
+  <div class="item"><span class="item-name">Muffin</span><span class="item-price">$3.500</span></div>
+  <div class="item"><span class="item-name">Brownie con Helado</span><span class="item-price">$13.000</span></div>
+</section>
+
+<!-- ALCOHÓLICAS -->
+<section class="section" id="alcoholicas">
+  <img class="section-banner" src="imagenes\bebidas.jpg" alt="bebidas">
+  <h2 class="section-title">Bebidas Alcohólicas</h2>
+  <div class="img-row">
+    <img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?w=300&q=75" alt="Cerveza">
+    <img src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=300&q=75" alt="Cervezas">
+  </div>
+  <p class="sub-title">Cervezas</p>
+  <div class="item"><span class="item-name">Cerveza Corona</span><span class="item-price">$12.000</span></div>
+  <div class="item"><span class="item-name">Cerveza Stella Artois</span><span class="item-price">$12.000</span></div>
+  <div class="item"><span class="item-name">Cerveza Club Colombia</span><span class="item-price">$10.000</span></div>
+  <div class="item"><span class="item-name">Tres Cordilleras</span><span class="item-price">$11.000</span></div>
+  <div class="item"><span class="item-name">Michelada (valor adicional)</span><span class="item-price">$2.000</span></div>
+  <div class="item"><span class="item-name">Cerveza artesanal Kuspide</span><span class="item-price">$12.000</span></div>
+  <div class="item"><span class="item-name">Cerveza importada</span><span class="item-price">$15.000</span></div>
+  <div class="item"><span class="item-name">Cerveza DUFF</span><span class="item-price">$12.000</span></div>
+<div class="img-row">
+    <img src="imagenes\aguardiente.jpg" alt="aguardiente">
+  </div>
+  <p class="sub-title">Licores</p>
+  <div class="item"><span class="item-name">Aguardiente Amarillo x 750 ml</span><span class="item-price">$80.000</span></div>
+</section>
+
+<!-- CÓCTELES -->
+<section class="section" id="cocteles">
+  <img class="section-banner" src="imagenes\cocteles_1.jpg" alt="Cócteles_1">
+  <h2 class="section-title">Cócteles</h2>
+  <div class="img-row">
+    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=300&q=75" alt="Margarita">
+    <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=300&q=75" alt="Mojito">
+  </div>
+  <div class="item"><span class="item-name">Margarita</span><span class="item-price">$27.000</span></div>
+  <div class="item"><span class="item-name">Mojito</span><span class="item-price">$22.000</span></div>
+  <div class="item"><span class="item-name">Moscow Mule</span><span class="item-price">$27.000</span></div>
+  <div class="item"><span class="item-name">Gin tonic</span><span class="item-price">$28.000</span></div>
+  <div class="item"><span class="item-name">Espresso Martini</span><span class="item-price">$27.000</span></div>
+</section>
+
+<!-- PROMOCIONES -->
+<section class="section" id="promociones">
+  <h2 class="section-title">Promociones</h2>
+  <div class="promo-fila">
+    <div class="promo-img-wrap">
+      <img src="imagenes/promo_empanadas.jpg" alt="Promo Mundial: 5 empanadas de carne o pollo por $9.000">
+    </div>
+    <div class="promo-img-wrap">
+      <img src="imagenes/promo_empanadas_platano.jpg" alt="Promo Mundial: 3 empanadas de plátano carne o pollo por $7.000">
+    </div>
+    <div class="promo-img-wrap">
+      <img src="imagenes/promo_arepas.jpg" alt="Promo Mundial: 3 arepas de huevo cocteleras por $8.000">
+    </div>
+  </div>
+</section>
+
+<!-- POLLA MUNDIAL -->
+<section class="section" id="polla">
+  <img class="section-banner" src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&q=80" alt="Polla Mundial">
+  <h2 class="section-title">Polla Colombia 🇨🇴 vs Portugal 🇵🇹</h2>
+  <p class="sub-title" style="text-align:center; border-left:none; padding-left:0;">Sábado 27 de junio · 6:30 p.m. (hora COL) · Hard Rock Stadium, Miami</p>
+
+  <div class="polla-card">
+    <h3>📝 Haz tu pronóstico</h3>
+    <form id="pollaForm">
+      <label>Tu nombre</label>
+      <input type="text" id="pNombre" placeholder="Ej: Juan Pérez" required>
+
+      <label>Tu número de teléfono</label>
+      <input type="tel" id="pTelefono" placeholder="Ej: 3115843849" required>
+
+      <label>Marcador</label>
+      <div class="marcador-row">
+        <div class="marcador-team">
+          <span>Colombia</span>
+          <input type="number" id="pColombia" min="0" max="20" required>
+        </div>
+        <span class="marcador-vs">VS</span>
+        <div class="marcador-team">
+          <span>Portugal</span>
+          <input type="number" id="pCongo" min="0" max="20" required>
+        </div>
+      </div>
+
+      <label>¿Quién anotará el primer gol? (elige un jugador, opcional)</label>
+      <select id="pGoleador">
+        <option value="">— No habrá goleador / no estoy seguro —</option>
+        <optgroup label="🇨🇴 Colombia">
+          <option>Camilo Vargas</option>
+          <option>Álvaro Montero</option>
+          <option>David Ospina</option>
+          <option>Dávinson Sánchez</option>
+          <option>Jhon Lucumí</option>
+          <option>Yerry Mina</option>
+          <option>Willer Ditta</option>
+          <option>Daniel Muñoz</option>
+          <option>Santiago Arias</option>
+          <option>Johan Mojica</option>
+          <option>Deiver Machado</option>
+          <option>Richard Ríos</option>
+          <option>Jefferson Lerma</option>
+          <option>Kevin Castaño</option>
+          <option>Juan Camilo Portilla</option>
+          <option>Gustavo Puerta</option>
+          <option>Jhon Arias</option>
+          <option>Jorge Carrascal</option>
+          <option>Juan Fernando Quintero</option>
+          <option>James Rodríguez</option>
+          <option>Jaminton Campaz</option>
+          <option>Juan Camilo Hernández</option>
+          <option>Luis Díaz</option>
+          <option>Luis Suárez</option>
+          <option>Carlos Andrés Gómez</option>
+          <option>Jhon Córdoba</option>
+        </optgroup>
+        <optgroup label="🇵🇹 Portugal">
+          <option>Diogo Costa</option>
+          <option>José Sá</option>
+          <option>Rui Silva</option>
+          <option>Rúben Dias</option>
+          <option>Renato Veiga</option>
+          <option>Gonçalo Inácio</option>
+          <option>Tomás Araújo</option>
+          <option>Nuno Mendes</option>
+          <option>João Cancelo</option>
+          <option>Diogo Dalot</option>
+          <option>Nélson Semedo</option>
+          <option>Matheus Nunes</option>
+          <option>Rúben Neves</option>
+          <option>Samu Costa</option>
+          <option>João Neves</option>
+          <option>Vitinha</option>
+          <option>Bruno Fernandes</option>
+          <option>Bernardo Silva</option>
+          <option>Cristiano Ronaldo</option>
+          <option>João Félix</option>
+          <option>Francisco Trincão</option>
+          <option>Francisco Conceição</option>
+          <option>Pedro Neto</option>
+          <option>Rafael Leão</option>
+          <option>Gonçalo Guedes</option>
+          <option>Gonçalo Ramos</option>
+        </optgroup>
+      </select>
+
+      <div class="pago-aviso">
+        <strong>💰 Valor de la polla: $5.000</strong>
+        <p>Envía el pago antes de enviar tu pronóstico, a:</p>
+        <div class="pago-metodos">
+          <div class="pago-metodo"><span class="pago-app">Nequi</span><span class="pago-dato">311 584 3849</span></div>
+          <div class="pago-metodo"><span class="pago-app">Bre-B</span><span class="pago-dato">@3103727436</span></div>
+        </div>
+      </div>
+
+      <label>Foto del comprobante de pago</label>
+      <input type="file" id="pComprobante" accept="image/*">
+      <p class="polla-hint">Sube una captura o foto del pago. Esto nos ayuda a verificar que ya pagaste.</p>
+
+      <button type="submit" class="polla-btn">Enviar mi pronóstico</button>
+      <p id="pollaMsg" class="polla-msg"></p>
+    </form>
+  </div>
+
+  <div class="polla-card">
+    <h3>🏆 Premiación</h3>
+    <p class="polla-rules">
+      5 pts marcador exacto · 3 pts diferencia de goles · 3 pts autor del primer gol acertado · 3 pts equipo ganador acertado.
+      El resultado oficial lo ingresa el administrador al terminar el partido.
+    </p>
+    <div id="pollaRanking"><p class="polla-msg">Esperando el resultado oficial del partido...</p></div>
+  </div>
+
+  <div class="polla-card">
+    <h3>📋 Pronósticos enviados</h3>
+    <div id="pollaLista"><p class="polla-msg">Cargando...</p></div>
+  </div>
+
+  <p style="text-align:center; margin-top:18px;">
+    <a href="admin.html" style="color:var(--muted); font-size:0.7rem; letter-spacing:1px;">Acceso administrador</a>
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <strong>Time Café Bar</strong> &nbsp;·&nbsp; Sabor que conecta<br>
+  <span style="color:var(--muted);margin-top:6px;display:block;">Precios en pesos colombianos (COP)</span>
+</footer>
+
+<script src="script.js"></script>
+<script src="polla.js"></script>
+</body>
+</html>
